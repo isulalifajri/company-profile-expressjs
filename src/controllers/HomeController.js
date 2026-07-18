@@ -2,7 +2,11 @@ class HomeController {
 
     index(req, res) {
 
-        res.send("Home Controller");
+        res.render("home", {
+            title: "Company Profile tes",
+            company: "PT Maju Mundur Sejahtera",
+            year: 2026
+        });
 
     }
 
