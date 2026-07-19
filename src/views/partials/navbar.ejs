@@ -1,13 +1,31 @@
 <nav>
 
-    <a href="/">Home</a> |
+<a href="/"
+class="<%= currentPath === '/' ? 'active' : '' %>">
 
-    <a href="/about">About</a> |
+Home
 
-    <a href="/services">Services</a> |
+</a>
 
-    <a href="/contact">Contact</a>
+<a href="/about"
+class="<%= currentPath === '/about' ? 'active' : '' %>">
+
+About
+
+</a>
+
+<a href="/services"
+class="<%= currentPath === '/services' ? 'active' : '' %>">
+
+Services
+
+</a>
+
+<a href="/contact"
+class="<%= currentPath === '/contact' ? 'active' : '' %>">
+
+Contact
+
+</a>
 
 </nav>
-
-<hr>
