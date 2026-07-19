@@ -1,0 +1,39 @@
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <h2>
+
+            Our Services
+
+        </h2>
+
+        <div class="row">
+
+            <% services.forEach(service => { %>
+
+                <div class="col-md-4">
+
+                    <div class="card mb-3">
+
+                        <div class="card-body">
+
+                            <h5>
+
+                                <%= service %>
+
+                            </h5>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            <% }) %>
+
+        </div>
+
+    </div>
+
+</section>

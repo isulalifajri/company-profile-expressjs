@@ -8,6 +8,15 @@ class ContactController {
 
     }
 
+    store(req, res) {
+
+        console.log(req.body);
+
+        res.send("Pesan berhasil dikirim.");
+
+    }
+
+
 }
 
 module.exports = new ContactController();
