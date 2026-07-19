@@ -7,7 +7,7 @@ function HandleValidation(req, res, next) {
     if (!errors.isEmpty()) {
 
        req.session.flash = {
-            errors: errors.array(),
+            errors: errors.mapped(),
             old: req.body
         };
 

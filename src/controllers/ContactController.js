@@ -6,7 +6,7 @@ class ContactController {
 
             title: "Contact",
 
-            errors: res.locals.flash.errors || [],
+            errors: res.locals.flash.errors || {},
 
             old: res.locals.flash.old || {}
 

@@ -2,24 +2,6 @@
 
     <h1>Contact Us</h1>
 
-    <% if (errors && errors.length > 0) { %>
-
-        <div class="alert alert-danger">
-
-            <ul class="mb-0">
-
-                <% errors.forEach(error => { %>
-
-                    <li><%= error.msg %></li>
-
-                <% }) %>
-
-            </ul>
-
-        </div>
-
-    <% } %>
-
     <form action="/contact" method="POST">
 
         <div class="mb-3">
@@ -32,9 +14,15 @@
 
             <input
                 type="text"
-                class="form-control"
+                class="form-control <%= errors.name ? 'is-invalid' : '' %>"
                 name="name"
-                value="<%= old?.name || '' %>">
+                value="<%= old.name || '' %>">
+
+            <% if (errors.name) { %>
+                <div class="invalid-feedback">
+                    <%= errors.name.msg %>
+                </div>
+            <% } %>
 
         </div>
 
@@ -48,9 +36,15 @@
 
             <input
                 type="email"
-                class="form-control"
+                class="form-control <%= errors.email ? 'is-invalid' : '' %>"
                 name="email"
-                value="<%= old?.email || '' %>">
+                value="<%= old.email || '' %>">
+
+            <% if (errors.email) { %>
+                <div class="invalid-feedback">
+                    <%= errors.email.msg %>
+                </div>
+            <% } %>
 
         </div>
 
@@ -63,9 +57,15 @@
             </label>
 
             <textarea
-                class="form-control"
+                class="form-control <%= errors.message ? 'is-invalid' : '' %>"
                 rows="5"
-                name="message"><%= old?.message || '' %></textarea>
+                name="message"><%= old.message || '' %></textarea>
+
+            <% if (errors.message) { %>
+                <div class="invalid-feedback">
+                    <%= errors.message.msg %>
+                </div>
+            <% } %>
 
         </div>
 
