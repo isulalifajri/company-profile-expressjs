@@ -1,11 +1,11 @@
 class ContactController {
 
     index(req, res) {
-
         res.render("contact", {
-            title: "Contact"
+            title: "Contact",
+            errors: [],
+            old: {}
         });
-
     }
 
     store(req, res) {

@@ -2,6 +2,24 @@
 
     <h1>Contact Us</h1>
 
+    <% if (errors && errors.length > 0) { %>
+
+        <div class="alert alert-danger">
+
+            <ul class="mb-0">
+
+                <% errors.forEach(error => { %>
+
+                    <li><%= error.msg %></li>
+
+                <% }) %>
+
+            </ul>
+
+        </div>
+
+    <% } %>
+
     <form action="/contact" method="POST">
 
         <div class="mb-3">
@@ -15,7 +33,8 @@
             <input
                 type="text"
                 class="form-control"
-                name="name">
+                name="name"
+                value="<%= old?.name || '' %>">
 
         </div>
 
@@ -30,7 +49,8 @@
             <input
                 type="email"
                 class="form-control"
-                name="email">
+                name="email"
+                value="<%= old?.email || '' %>">
 
         </div>
 
@@ -45,7 +65,7 @@
             <textarea
                 class="form-control"
                 rows="5"
-                name="message"></textarea>
+                name="message"><%= old?.message || '' %></textarea>
 
         </div>
 

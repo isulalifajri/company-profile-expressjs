@@ -7,6 +7,7 @@ const AboutController = require("../controllers/AboutController");
 const ServiceController = require("../controllers/ServiceController");
 const ContactController = require("../controllers/ContactController");
 const ContactValidation = require("../middlewares/ContactValidation");
+const HandleValidation = require("../middlewares/HandleValidation");
 
 router.get("/", HomeController.index);
 
@@ -18,6 +19,7 @@ router.get("/contact", ContactController.index);
 router.post(
     "/contact",
     ContactValidation,
+    HandleValidation,
     ContactController.store
 );
 
