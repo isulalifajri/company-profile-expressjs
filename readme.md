@@ -15,4 +15,8 @@ Install sebagai dependency pengembangan:`npm install --save-dev nodemon`
 
 `npm install express-validator` -> form validation
 
+`npm install express-session` -> for session
+
+`npm install dotenv` -> for create env
+
 

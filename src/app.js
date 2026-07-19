@@ -1,6 +1,9 @@
+require("dotenv").config();
+
 const express = require("express");
 const path = require("path");
 const expressLayouts = require("express-ejs-layouts");
+const session = require("express-session");
 
 const LoggerMiddleware = require("./middlewares/LoggerMiddleware");
 const GlobalVariablesMiddleware = require("./middlewares/GlobalVariablesMiddleware");
@@ -46,6 +49,29 @@ app.use(GlobalVariablesMiddleware);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.get("/test", (req, res) => {
+
+    req.session.name = "Anak Kebun";
+
+    res.send("Session dibuat.");
+
+});
+
+app.get("/check", (req, res) => {
+
+    res.send(req.session.name);
+
+});
+
+console.log(process.env.PORT);
+console.log(process.env.SESSION_SECRET);
 
 app.use("/", webRoutes);
 
