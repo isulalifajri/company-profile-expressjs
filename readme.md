@@ -19,4 +19,6 @@ Install sebagai dependency pengembangan:`npm install --save-dev nodemon`
 
 `npm install dotenv` -> for create env
 
+`npm install pg` -> menghubungkan ke postgreSQL
+
 
