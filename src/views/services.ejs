@@ -1,3 +1,34 @@
-<h1>Services</h1>
+<h1><%= title %></h1>
 
-<p>Ini halaman Services.</p>
+<ul>
+
+<% services.forEach(service => { %>
+
+<li>
+
+    <%= service.name %>
+
+    <% if(service.featured){ %>
+
+        ⭐
+
+    <% } %>
+
+</li>
+
+<% }) %>
+
+
+</ul>
+
+<% servicess.forEach((service, index) => { %>
+
+<p>
+
+<%= index + 1 %>.
+
+<%= service %>
+
+</p>
+
+<% }) %>
