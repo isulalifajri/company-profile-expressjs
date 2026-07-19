@@ -7,6 +7,7 @@ const session = require("express-session");
 
 const LoggerMiddleware = require("./middlewares/LoggerMiddleware");
 const GlobalVariablesMiddleware = require("./middlewares/GlobalVariablesMiddleware");
+const FlashMiddleware = require("./middlewares/FlashMiddleware");
 const webRoutes = require("./routes/web");
 
 const app = express();
@@ -55,6 +56,8 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+
+app.use(FlashMiddleware);
 
 app.get("/test", (req, res) => {
 

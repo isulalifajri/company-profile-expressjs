@@ -6,11 +6,12 @@ function HandleValidation(req, res, next) {
 
     if (!errors.isEmpty()) {
 
-        return res.status(422).render("contact", {
-            title: "Contact",
+       req.session.flash = {
             errors: errors.array(),
             old: req.body
-        });
+        };
+
+        return res.redirect("/contact");
 
     }
 

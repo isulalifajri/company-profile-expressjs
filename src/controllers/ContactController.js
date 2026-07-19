@@ -1,11 +1,17 @@
 class ContactController {
 
     index(req, res) {
+
         res.render("contact", {
+
             title: "Contact",
-            errors: [],
-            old: {}
+
+            errors: res.locals.flash.errors || [],
+
+            old: res.locals.flash.old || {}
+
         });
+
     }
 
     store(req, res) {
@@ -15,7 +21,6 @@ class ContactController {
         res.send("Pesan berhasil dikirim.");
 
     }
-
 
 }
 
