@@ -3,6 +3,7 @@ const path = require("path");
 const expressLayouts = require("express-ejs-layouts");
 
 const LoggerMiddleware = require("./middlewares/LoggerMiddleware");
+const GlobalVariablesMiddleware = require("./middlewares/GlobalVariablesMiddleware");
 const webRoutes = require("./routes/web");
 
 const app = express();
@@ -35,6 +36,7 @@ app.use(express.static(path.join(__dirname, "public")));
 */
 
 app.use(LoggerMiddleware);
+app.use(GlobalVariablesMiddleware);
 
 /*
 |--------------------------------------------------------------------------
