@@ -1,11 +1,13 @@
 class AboutController {
 
-    index(req,res){
+    index(req, res) {
 
-        res.send("About");
+        res.render("about", {
+            title: "About"
+        });
 
     }
 
 }
-    
+
 module.exports = new AboutController();
