@@ -102,6 +102,78 @@ class ContactController {
 
     }
 
+    async edit(req, res) {
+
+        try {
+
+            const id = Number(req.params.id);
+
+            const contact = await Contact.findById(id);
+
+            if (!contact) {
+
+                return res.status(404).send(
+                    "Contact tidak ditemukan."
+                );
+
+            }
+
+            return res.render("contact/edit", {
+
+                title: "Edit Contact",
+
+                contact,
+
+                errors: res.locals.flash.errors || {},
+
+                old: res.locals.flash.old || {}
+
+            });
+
+        } catch (error) {
+
+            console.error(error);
+
+            return res.status(500).send(
+                "Terjadi kesalahan pada server."
+            );
+
+        }
+
+    }
+
+    async update(req, res) {
+
+        try {
+
+            const id = Number(req.params.id);
+
+            await Contact.update(id, req.body);
+
+            req.session.flash = {
+                success: "Contact berhasil diperbarui."
+            };
+
+            return res.redirect(
+                `/contact/messages/${id}`
+            );
+
+        } catch (error) {
+
+            console.error(error);
+
+            req.session.flash = {
+                error: "Gagal memperbarui contact."
+            };
+
+            return res.redirect(
+                `/contact/messages/${id}/edit`
+            );
+
+        }
+
+    }
+
 }
 
 module.exports = new ContactController();

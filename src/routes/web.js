@@ -35,6 +35,18 @@ router.get(
     ContactController.show
 );
 
+router.get(
+    "/contact/messages/:id/edit",
+    ContactController.edit
+);
+
+router.post(
+    "/contact/messages/:id/update",
+    ContactValidation,
+    HandleValidation,
+    ContactController.update
+);
+
 // router.get("/contact", (req, res) => {
 //     res.send("Contact Page");
 // });

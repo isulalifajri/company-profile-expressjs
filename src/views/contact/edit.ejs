@@ -1,0 +1,121 @@
+<div class="container py-4">
+
+    <div class="mb-4">
+
+        <h1>Edit Contact</h1>
+
+        <p class="text-muted">
+            Ubah data contact.
+        </p>
+
+    </div>
+
+
+    <div class="card shadow-sm">
+
+        <div class="card-body">
+
+            <form
+                action="/contact/messages/<%= contact.id %>/update"
+                method="POST">
+
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Name
+                    </label>
+
+                    <input
+                        type="text"
+                        name="name"
+                        class="form-control <%= errors.name ? 'is-invalid' : '' %>"
+                        value="<%= old.name !== undefined ? old.name : contact.name %>"
+                    >
+
+                    <% if (errors.name) { %>
+
+                        <div class="invalid-feedback">
+                            <%= errors.name.msg %>
+                        </div>
+
+                    <% } %>
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        class="form-control <%= errors.email ? 'is-invalid' : '' %>"
+                        value="<%= old.email !== undefined ? old.email : contact.email %>"
+                    >
+
+                    <% if (errors.email) { %>
+
+                        <div class="invalid-feedback">
+                            <%= errors.email.msg %>
+                        </div>
+
+                    <% } %>
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Message
+                    </label>
+
+                    <textarea
+                        name="message"
+                        class="form-control <%= errors.message ? 'is-invalid' : '' %>"
+                        rows="5"
+                        ><%= old.message !== undefined ? old.message : contact.message %></textarea>
+
+                    <% if (errors.message) { %>
+
+                        <div class="invalid-feedback">
+                            <%= errors.message.msg %>
+                        </div>
+
+                    <% } %>
+
+                </div>
+
+
+                <div class="d-flex gap-2">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary">
+
+                        Update
+
+                    </button>
+
+
+                    <a
+                        href="/contact/messages/<%= contact.id %>"
+                        class="btn btn-secondary">
+
+                        Cancel
+
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

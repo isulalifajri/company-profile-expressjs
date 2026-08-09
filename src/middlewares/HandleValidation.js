@@ -11,7 +11,8 @@ function HandleValidation(req, res, next) {
             old: req.body
         };
 
-        return res.redirect("/contact");
+        // return res.redirect("/contact");
+        return res.redirect(req.get("referer") || "/contact");
 
     }
 

@@ -53,6 +53,33 @@ class Contact {
         return result.rows[0];
     }
 
+    static async update(id, data) {
+
+        const { name, email, message } = data;
+
+        const query = `
+            UPDATE contacts
+            SET
+                name = $1,
+                email = $2,
+                message = $3,
+                updated_at = CURRENT_TIMESTAMP
+            WHERE id = $4
+            RETURNING *
+        `;
+
+        const values = [
+            name,
+            email,
+            message,
+            id
+        ];
+
+        const result = await pool.query(query, values);
+
+        return result.rows[0];
+    }
+
 }
 
 module.exports = Contact;
