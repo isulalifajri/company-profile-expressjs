@@ -2,6 +2,22 @@
 
     <h1>Contact Us</h1>
 
+    <% if (flash.success) { %>
+
+        <div class="alert alert-success">
+            <%= flash.success %>
+        </div>
+
+    <% } %>
+
+    <% if (flash.error) { %>
+
+        <div class="alert alert-danger">
+            <%= flash.error %>
+        </div>
+
+    <% } %>
+
     <form action="/contact" method="POST">
 
         <div class="mb-3">

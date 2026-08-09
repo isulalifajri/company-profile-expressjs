@@ -1,5 +1,14 @@
 ## membuat webiste company profile dengan node js(express js framework)
 
+- menjalankan project : `npm run dev`
+
+- menjalankan postgreSQL(Run As Administrator) : 
+````
+Get-Service *postgres*
+Start-Service postgresql-x64-18
+Stop-Service postgresql-x64-18
+````
+
 **Inisialisasi Project**
 
 Jalankan: `npm init -y`

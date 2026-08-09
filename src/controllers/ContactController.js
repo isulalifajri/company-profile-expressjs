@@ -1,3 +1,5 @@
+const Contact = require("../models/Contact");
+
 class ContactController {
 
     index(req, res) {
@@ -14,11 +16,29 @@ class ContactController {
 
     }
 
-    store(req, res) {
+    async store(req, res) {
 
-        console.log(req.body);
+        try {
 
-        res.send("Pesan berhasil dikirim.");
+            await Contact.create(req.body);
+
+            req.session.flash = {
+                success: "Pesan berhasil dikirim."
+            };
+
+            return res.redirect("/contact");
+
+        } catch (error) {
+
+            console.error(error);
+
+            req.session.flash = {
+                error: "Terjadi kesalahan saat menyimpan pesan."
+            };
+
+            return res.redirect("/contact");
+
+        }
 
     }
 
