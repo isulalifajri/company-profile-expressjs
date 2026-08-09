@@ -40,6 +40,19 @@ class Contact {
         return result.rows;
     }
 
+    static async findById(id) {
+
+        const query = `
+            SELECT *
+            FROM contacts
+            WHERE id = $1
+        `;
+
+        const result = await pool.query(query, [id]);
+
+        return result.rows[0];
+    }
+
 }
 
 module.exports = Contact;

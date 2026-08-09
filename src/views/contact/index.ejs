@@ -38,6 +38,7 @@
                             <th>Email</th>
                             <th>Message</th>
                             <th>Created</th>
+                            <th>Action</th>
                         </tr>
 
                     </thead>
@@ -66,6 +67,18 @@
 
                                 <td>
                                     <%= contact.created_at %>
+                                </td>
+
+                                <td>
+
+                                    <a
+                                        href="/contact/messages/<%= contact.id %>"
+                                        class="btn btn-sm btn-primary">
+
+                                        Detail
+
+                                    </a>
+
                                 </td>
 
                             </tr>

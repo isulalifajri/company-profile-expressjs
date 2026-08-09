@@ -30,6 +30,11 @@ router.get(
     ContactController.list
 );
 
+router.get(
+    "/contact/messages/:id",
+    ContactController.show
+);
+
 // router.get("/contact", (req, res) => {
 //     res.send("Contact Page");
 // });
