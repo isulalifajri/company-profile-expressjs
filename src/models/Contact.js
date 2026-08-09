@@ -27,6 +27,19 @@ class Contact {
         return result.rows[0];
     }
 
+    static async findAll() {
+
+        const query = `
+            SELECT *
+            FROM contacts
+            ORDER BY id DESC
+        `;
+
+        const result = await pool.query(query);
+
+        return result.rows;
+    }
+
 }
 
 module.exports = Contact;

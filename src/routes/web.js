@@ -15,12 +15,19 @@ router.get("/about", AboutController.index);
 
 router.get("/services", ServiceController.index);
 
+// route contact
 router.get("/contact", ContactController.index);
+
 router.post(
     "/contact",
     ContactValidation,
     HandleValidation,
     ContactController.store
+);
+
+router.get(
+    "/contact/messages",
+    ContactController.list
 );
 
 // router.get("/contact", (req, res) => {

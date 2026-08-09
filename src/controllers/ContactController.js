@@ -42,6 +42,30 @@ class ContactController {
 
     }
 
+    async list(req, res) {
+
+        try {
+
+            const contacts = await Contact.findAll();
+
+            return res.render("contact/index", {
+
+                title: "Contact Messages",
+
+                contacts
+
+            });
+
+        } catch (error) {
+
+            console.error(error);
+
+            return res.status(500).send("Terjadi kesalahan pada server.");
+
+        }
+
+    }
+
 }
 
 module.exports = new ContactController();
