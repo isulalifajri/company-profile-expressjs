@@ -80,6 +80,19 @@ class Contact {
         return result.rows[0];
     }
 
+    static async delete(id) {
+
+        const query = `
+            DELETE FROM contacts
+            WHERE id = $1
+            RETURNING *
+        `;
+
+        const result = await pool.query(query, [id]);
+
+        return result.rows[0];
+    }
+
 }
 
 module.exports = Contact;

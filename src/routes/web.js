@@ -47,6 +47,11 @@ router.post(
     ContactController.update
 );
 
+router.post(
+    "/contact/messages/:id/delete",
+    ContactController.delete
+);
+
 // router.get("/contact", (req, res) => {
 //     res.send("Contact Page");
 // });

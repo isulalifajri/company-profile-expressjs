@@ -174,6 +174,44 @@ class ContactController {
 
     }
 
+    async delete(req, res) {
+
+        try {
+
+            const id = Number(req.params.id);
+
+            const contact = await Contact.delete(id);
+
+            if (!contact) {
+
+                req.session.flash = {
+                    error: "Contact tidak ditemukan."
+                };
+
+                return res.redirect("/contact/messages");
+
+            }
+
+            req.session.flash = {
+                success: "Contact berhasil dihapus."
+            };
+
+            return res.redirect("/contact/messages");
+
+        } catch (error) {
+
+            console.error(error);
+
+            req.session.flash = {
+                error: "Gagal menghapus contact."
+            };
+
+            return res.redirect("/contact/messages");
+
+        }
+
+    }
+
 }
 
 module.exports = new ContactController();
